@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anilov' Essentials</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+  }
+
+  header {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 15px;
+  }
+
+  nav {
+    background: #333;
+    text-align: center;
+    padding: 10px;
+  }
+
+  nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  section {
+    display: none;
+    padding: 20px;
+  }
+
+  .active {
+    display: block;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+  .product {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .product img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    background: #222;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #444;
+  }
+
+  footer {
+    text-align: center;
+    padding: 10px;
+    background: #222;
+    color: white;
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Anilov' Essentials</h1>
+  <p>Your daily essentials store</p>
+</header>
+
+<nav>
+  <a onclick="show('home')">Home</a>
+  <a onclick="show('about')">About</a>
+  <a onclick="show('products')">Products</a>
+  <a onclick="show('contact')">Contact</a>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="active">
+  <h2>Welcome</h2>
+  <p>Welcome to Anilov' Essentials online store.</p>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>About</h2>
+  <p>This is a simple demo e-commerce website for educational purposes.</p>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <h2>Products</h2>
+
+  <div class="container">
+
+    <div class="product">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Surgical_mask.jpg" alt="Face Mask">
+      <h3>Face Mask</h3>
+      <p>₱50</p>
+      <button onclick="add()">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/Hand_sanitizer_bottle.jpg" alt="Hand Sanitizer">
+      <h3>Hand Sanitizer</h3>
+      <p>₱120</p>
+      <button onclick="add()">Add to Cart</button>
+    </div>
+
+    <div class="product
