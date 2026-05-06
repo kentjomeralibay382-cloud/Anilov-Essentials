@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anilov' Essentials</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f5f5f5;
+  }
+
+  header {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 15px;
+  }
+
+  nav {
+    background: #333;
+    text-align: center;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+  }
+
+  nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .cart-btn {
+    color: yellow;
+    font-weight: bold;
+    margin-left: 15px;
+    cursor: pointer;
+  }
+
+  section {
+    display: none;
+    padding: 20px;
+  }
+
+  .active {
+    display: block;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+  .product {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  .product img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  button {
+    width: 100%;
+    padding: 10px;
+    background: #222;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background: #444;
+  }
+
+  footer {
+    text-align: center;
+    padding: 10px;
+    background: #222;
+    color: white;
+  }
+
+  /* CART SIDEBAR */
+  .cart {
+    position: fixed;
+    right: -320px;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background: white;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+    padding: 15px;
+    transition: 0.3s;
+  }
+
+  .cart.open {
+    right: 0;
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Anilov' Essentials</h1>
+  <p>Your daily essentials online store</p>
+</header>
+
+<nav>
+  <a onclick="show('home')">Home</a>
+  <a onclick="show('about')">About</a>
+  <a onclick="show('products')">Products</a>
+  <a onclick="show('contact')">Contact</a>
+
+  <span class="cart-btn" onclick="toggleCart()">
+    Cart (<span id="cartCount">0</span>)
+  </span>
+</nav>
+
+<!-- HOME -->
+<section id="home" class="active">
+  <h2>Welcome</h2>
+  <p>Welcome to Anilov' Essentials — your simple online essentials store.</p>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>About</h2>
+  <p>This website is a demo project built using HTML, CSS, and JavaScript for educational purposes.</p>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <h2>Products</h2>
+
+  <div class="container">
+
+    <div class="product">
+      <img src="https://placehold.co/600x400/ffffff/000000?text=Face+Mask" alt="Face Mask">
+      <h3>Face Mask</h3>
+      <p>₱50</p>
+      <button onclick="addToCart('Face Mask')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://placehold.co/600x400/ffffff/000000?text=Hand+Sanitizer" alt="Sanitizer">
+      <h3>Hand Sanitizer</h3>
+      <p>₱120</p>
+      <button onclick="addToCart('Hand Sanitizer')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://placehold.co/600x400/ffffff/000000?text=Toothpaste" alt="Toothpaste">
+      <h3>Toothpaste</h3>
+      <p>₱80</p>
+      <button onclick="addToCart('Toothpaste')">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="https://placehold.co/600x400/ffffff/000000?text=Shampoo" alt="Shampoo">
+      <h3>Shampoo</h3>
+      <p>₱150</p>
+      <button onclick="addToCart('Shampoo')">Add to Cart</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: anilovrivera05@gmail.com</p>
+  <p>Phone: 09244329315</p>
+</section>
+
+<!-- CART -->
+<div class="cart" id="cart">
+  <h3>Your Cart</h3>
+  <ul id="cartItems"></ul>
+</div>
+
+<footer>
+  <p>© 2026 Anilov' Essentials</p>
+</footer>
+
+<script>
+let count = 0;
+
+function show(id){
+  document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function addToCart(item){
+  count++;
+  document.getElementById("cartCount").innerText = count;
+
+  let li = document.createElement("li");
+  li.textContent = item;
+  document.getElementById("cartItems").appendChild(li);
+}
+
+function toggleCart(){
+  document.getElementById("cart").classList.toggle("open");
+}
+</script>
+
+</body>
+</html>
